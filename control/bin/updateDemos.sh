@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CONTENT_DIR="/u01/content/cloud-native-devops-workshop"
-export GIT_URL="https://github.com/oracle/cloud-native-devops-workshop.git"
+export GIT_URL="https://github.com/nagypeter/cloud-native-devops-workshop.git"
 export GIT_BRANCH="master"
 
 sudo $CONTENT_DIR/control/bin/sudoNetwork.sh
