@@ -20,4 +20,12 @@ fi
 echo "http_proxy=$http_proxy"
 echo "https_proxy=$https_proxy"
 
+echo "Clean and disable yum cache/PackageKit..."
+
+sudo ps -ef | grep PackageKit | grep -v grep | awk '{print $2}' | xargs -r kill -9
+
+sudo yum --enablerepo=* clean all
+
+sudo systemctl disable packagekit
+
 echo "Everything is up to date!"
