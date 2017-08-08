@@ -50,4 +50,8 @@ echo "Updating virtualbox environment..."
 
 ${CONTENT_DIR}/control/bin/updateVM.sh
 
+echo "Clean yum cache..."
+
+sudo yum --enablerepo=* clean all
+
 read -p "Checkout complete. Press [Enter] to close the window"

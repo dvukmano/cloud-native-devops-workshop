@@ -8,7 +8,7 @@ opc.password=PWD_TO_BE_EDITED
 # Check your generic storage url - see documentation
 opc.storage.generic.url=storage.oraclecloud.com
 # The name of the container to use by Database and Java Cloud Services
-opc.storage.container=wins_container
+opc.storage.container=app2cloud
 
 # SSH key details
 # first you need to create your SSH key pair. Use example Putty's Keygen tool - see documentation
@@ -26,7 +26,7 @@ jcs.base.url=jaas.oraclecloud.com
 jcs.rest.url=/paas/service/jcs/api/v1.1/instances/
 jcs.instance.version.1=12.2.1
 jcs.instance.otd.1=false
-jcs.instance.1=winsdemoWLS
+jcs.instance.1=techco
 jcs.instance.desc.1=winsdemo instance through REST
 jcs.instance.partition.1=1
 jcs.instance.admin.user.1=weblogic
@@ -36,7 +36,7 @@ jcs.instance.admin.password.1=welcome1
 dbcs.base.url=dbaas.oraclecloud.com
 dbcs.rest.url=/paas/service/dbcs/api/v1.1/instances/
 dbcs.instance.version.1=12.1.0.2
-dbcs.instance.1=winsdemo
+dbcs.instance.1=techcoDB
 dbcs.instance.sid.1=ORCL
 dbcs.instance.pdb1.1=PDB1
 dbcs.instance.pdb2.1=PDB2
