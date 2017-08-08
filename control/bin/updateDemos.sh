@@ -52,6 +52,8 @@ ${CONTENT_DIR}/control/bin/updateVM.sh
 
 echo "Clean yum cache..."
 
+ps -ef | grep PackageKit | grep -v grep | awk '{print $2}' | xargs -r kill -9
+
 sudo yum --enablerepo=* clean all
 
 read -p "Checkout complete. Press [Enter] to close the window"
