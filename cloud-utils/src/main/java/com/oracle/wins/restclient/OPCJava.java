@@ -10,31 +10,31 @@ import org.apache.http.message.BasicNameValuePair;
 import com.oracle.wins.util.OPCProperties;
 
 public class OPCJava {
-	
+
 	public static String getJCSInstanceDetail() {
-		
+
 		OPCProperties opcProperties = OPCProperties.getInstance();
 		BasicNameValuePair[] aHeaders = null;
-		String sUri = null;	
-		
+		String sUri = null;
+
 		aHeaders = new BasicNameValuePair[2];
-    	
+
     	aHeaders[0] = new BasicNameValuePair("accept", OPCProperties.CONTENT_TYPE_JSON);
     	aHeaders[1] = new BasicNameValuePair("X-ID-TENANT-NAME", opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN));
-    	
-		sUri = "http://" + opcProperties.getProperty(OPCProperties.OPC_BASE_URL) 
+
+		sUri = "http://" + opcProperties.getProperty(OPCProperties.OPC_BASE_URL)
 				+ opcProperties.getProperty(OPCProperties.JCS_REST_URL)
 				+ opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN)
 				+ "/" + opcProperties.getProperty(OPCProperties.JCS_INSTANCE_1);
-    	
+
 		Credentials credOPCUser = new UsernamePasswordCredentials(opcProperties.getProperty(OPCProperties.OPC_USERNAME), opcProperties.getProperty(OPCProperties.OPC_PASSWORD));
-		
+
 		return ApacheHttpClientGet.httpClientGET(sUri, aHeaders, null, credOPCUser);
-		
+
 	}
-	
+
 	public static String createJCSInstance() {
-		
+
 		OPCProperties opcProperties = OPCProperties.getInstance();
 		StringBuffer sbTemp = new StringBuffer();
 		sbTemp.append("{");
@@ -47,6 +47,7 @@ public class OPCJava {
 		sbTemp.append("    \"cloudStorageContainer\" : \"Storage-" + opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN) + "/" + opcProperties.getProperty(OPCProperties.OPC_STORAGE_CONTAINER) + "\",");
 		sbTemp.append("    \"cloudStorageUser\" : \"" + opcProperties.getProperty(OPCProperties.OPC_USERNAME) + "\",");
 		sbTemp.append("    \"cloudStoragePassword\" : \"" + opcProperties.getProperty(OPCProperties.OPC_PASSWORD) + "\",");
+		sbTemp.append("    \"sampleAppDeploymentRequested\" : \"true\",");
 		sbTemp.append("    \"parameters\" : [");
 		sbTemp.append("    {");
 		sbTemp.append("        \"type\" : \"weblogic\",");
@@ -75,7 +76,7 @@ public class OPCJava {
 	//	sbTemp.append("        \"backupVolumeSize\" : \"10G\",");
 		sbTemp.append("        \"VMsPublicKey\" : \"" + opcProperties.getProperty(OPCProperties.SSH_PUBLIC_KEY) + "\"");
 		sbTemp.append("    }");
-		
+
 		if (opcProperties.getProperty(OPCProperties.JCS_INSTANCE_OTD_1).equals("true")) {
 			sbTemp.append(",    {");
 			sbTemp.append("        \"type\" : \"otd\",");
@@ -91,17 +92,17 @@ public class OPCJava {
 	        sbTemp.append("        \"VMsPublicKey\" : \"" + opcProperties.getProperty(OPCProperties.SSH_PUBLIC_KEY) + "\"");
 	        sbTemp.append("    }");
 		}
-		
+
 		sbTemp.append("    ]");
 		sbTemp.append("}");
-		
+
 		StringEntity seBody = null;
 		try {
 			seBody = new StringEntity(sbTemp.toString());
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException("Failed to construct body: " + e.getMessage());
 		}
-		
+
 		return ApacheHttpClientPost.httpClientPOST(
 				opcProperties.getProperty(OPCProperties.OPC_USERNAME),
 				opcProperties.getProperty(OPCProperties.OPC_PASSWORD),
@@ -111,7 +112,7 @@ public class OPCJava {
 				opcProperties.getProperty(OPCProperties.OPC_BASE_URL),
 				OPCProperties.CONTENT_TYPE_VND_SERVICE_JSON,
 				seBody);
-		
+
 	}
 
 }
