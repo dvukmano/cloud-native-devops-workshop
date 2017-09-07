@@ -49,4 +49,6 @@ dbcs_ip=$(curl -s --request GET --user $opcuser:$opcpassword --header "X-ID-TENA
 
 echo "Database Cloud Service IP address:" $dbcs_ip
 
+chmod 600 ../cloud-utils/tmp.pk
+
 ./prepareDBCS.sh system Welcome_1 ../cloud-utils/tmp.pk $dbcs_ip
