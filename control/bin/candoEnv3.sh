@@ -8,6 +8,9 @@ fi
 export CONFIG_JVM_ARGS=-Djava.security.egd=file:/dev/./urandom
 export JAVA_OPTIONS=$CONFIG_JVM_ARGS
 
+export JAVA_HOME="/usr/java/latest"
+export PATH="${PATH}:${JAVA_HOME}/bin"
+
 export SW_BASE="/u01"
 export USER_BASE="/u01"
 
