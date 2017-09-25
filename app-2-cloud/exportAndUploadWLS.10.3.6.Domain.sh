@@ -10,9 +10,9 @@ opcuser=${1}
 opcpassword=${2}
 identitydomain=${3}
 
-# Default DBCS service name to petstoreDB if not specified
+# Default DBCS service name to techcoDB if not specified
 if [ -z "$4" ]; then
-   dbcservice="petstoreDB";
+   dbcservice="techcoDB";
 else
   dbcservice=${4};
 fi
