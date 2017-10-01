@@ -9,7 +9,7 @@ sudo $CONTENT_DIR/control/bin/sudoNetwork.sh
 sleep 3
 
 cd $CONTENT_DIR
-timeout 5 git ls-remote --exit-code -h "$GIT_URL"
+timeout 10 git ls-remote --exit-code -h "$GIT_URL"
 if [ "$?" -ne 0 ]; then
     echo "[ERROR] Unable to read from '$GIT_URL'"
     echo "Check your proxy settings and/or restart Virtualbox VM."
