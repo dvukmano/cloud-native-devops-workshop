@@ -50,6 +50,8 @@ echo "========================================"
 
 echo "Clean and disable yum cache/PackageKit..."
 
+rm -f /var/run/yum.pid
+
 sudo ps -ef | grep PackageKit | grep -v grep | awk '{print $2}' | xargs -r kill -9 &
 
 sudo yum --enablerepo=* clean all
