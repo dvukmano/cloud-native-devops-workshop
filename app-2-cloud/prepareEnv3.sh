@@ -118,7 +118,6 @@ cd $APP2CLOUD_DIR
 
 $JAVA_HOME/bin/java -Dweblogic.deploy.UploadLargeFile=true -Dweblogic.RootDirectory=$DOMAIN_HOME weblogic.WLST $APP2CLOUD_DIR/wlst/deployPetstore.py
 
-rm -f $APP2CLOUD_DIR/petstore.12.war
 rm -f $APP2CLOUD_DIR/wlst/deployPetstore.py
 
 echo "********** OPEN PETSTORE APPLICATION AT http://localhost:7003/petstore/faces/catalog.jsp"
