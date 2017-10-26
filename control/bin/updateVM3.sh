@@ -48,6 +48,11 @@ EOF
 fi
 echo "========================================"
 
+sudo yum -y install python34-setuptools
+sudo easy_install-3.4 pip
+
+echo "========================================"
+
 echo "Clean and disable yum cache/PackageKit..."
 
 sudo rm -f /var/run/yum.pid
