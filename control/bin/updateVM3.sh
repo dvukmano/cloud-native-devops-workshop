@@ -56,9 +56,6 @@ sudo ps -ef | grep PackageKit | grep -v grep | awk '{print $2}' | xargs -r kill 
 
 sudo yum --enablerepo=* clean all
 
-sudo yum -y install python34-setuptools
-sudo easy_install-3.4 pip
-
 sudo systemctl disable packagekit
 
 echo "Everything is up to date!"
