@@ -48,11 +48,6 @@ EOF
 fi
 echo "========================================"
 
-sudo yum -y install python34-setuptools
-sudo easy_install-3.4 pip
-
-echo "========================================"
-
 echo "Clean and disable yum cache/PackageKit..."
 
 sudo rm -f /var/run/yum.pid
@@ -60,6 +55,9 @@ sudo rm -f /var/run/yum.pid
 sudo ps -ef | grep PackageKit | grep -v grep | awk '{print $2}' | xargs -r kill -9 &
 
 sudo yum --enablerepo=* clean all
+
+sudo yum -y install python34-setuptools
+sudo easy_install-3.4 pip
 
 sudo systemctl disable packagekit
 
