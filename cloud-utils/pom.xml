@@ -44,7 +44,12 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
         <type>maven-plugin</type>
-    </dependency>   
+    </dependency>
+	<dependency>
+	    <groupId>com.eclipsesource.minimal-json</groupId>
+	    <artifactId>minimal-json</artifactId>
+	    <version>0.9.4</version>
+	</dependency>       
   </dependencies>
   
   <profiles>

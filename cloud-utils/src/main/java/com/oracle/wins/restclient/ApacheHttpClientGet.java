@@ -9,7 +9,6 @@ import org.apache.http.auth.Credentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -20,8 +19,7 @@ import com.oracle.wins.util.OPCProperties;
 public class ApacheHttpClientGet {
 
 	public static String httpClientGET(String sUri,
-			BasicNameValuePair[] aHeaders, StringEntity seBody,
-			Credentials credOPCUser) {
+			BasicNameValuePair[] aHeaders, Credentials credOPCUser, String sAuthScopeURL) {
 
 		StringBuffer sbOutput = new StringBuffer();
 		CredentialsProvider credsProvider = null;
@@ -30,8 +28,7 @@ public class ApacheHttpClientGet {
 			CloseableHttpClient httpclient = null;
 			if (credOPCUser != null) {
 				credsProvider = new BasicCredentialsProvider();
-				credsProvider.setCredentials(new AuthScope(OPCProperties
-						.getInstance().getProperty(OPCProperties.OPC_BASE_URL),
+				credsProvider.setCredentials(new AuthScope(sAuthScopeURL,
 						443), credOPCUser);
 
 				httpclient = HttpClients.custom()
@@ -39,16 +36,16 @@ public class ApacheHttpClientGet {
 			} else {
 				httpclient = HttpClients.custom().build();
 			}
-
+			System.out.println("URI: " + sUri);
 			HttpGet httpGet = new HttpGet(sUri);
-
+			
 			for (BasicNameValuePair header : aHeaders) {
 				httpGet.addHeader(header.getName(), header.getValue());
 			}
 
 			System.out.println("Executing request " + httpGet.getRequestLine() + (credsProvider != null ? (" Auth: " + credsProvider): "") );
 			CloseableHttpResponse response = httpclient.execute(httpGet);
-
+			
 			System.out.println("Response: " + response.getStatusLine());
 
 			if (!(response.getStatusLine().getStatusCode() == 200 || response.getStatusLine().getStatusCode() == 204 

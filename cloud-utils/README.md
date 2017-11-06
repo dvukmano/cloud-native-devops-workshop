@@ -37,8 +37,20 @@ Once the configuration ready the following OPC management goals are available.
 - **jcs-get-instance-details**: get more detailed information (public IP address, WebLogic admin console address, version, status, etc.) about Java Cloud Service Instance.
 - **jcs-delete**: terminate Oracle Java Cloud Service instance.
 - **jcs-get-job-details –Djob.id=X**: get more details about Java Cloud Service instance related job. For example status of provisioning or termination. **X** is the job number which is available in the result of **jcs-get-instance-details**
+- **bulk-accs-delete / bulk-jcs-delete / bulk-dbcs-delete / bulk-dbcs-create / bulk-devcs-delete / bulk-storage-delete**: Buld operation to delete or create specified resource(s). Requires **opc.domain.csv** file in the following format: 
 
-The maven build execution format:
+	*identity domain;data center;user name;user password;developer cloud service instance*
+	e.g.:
+	
+		gse00062294;us2;cloud.admin;aslkdjalsi3;developer39954
+
+	Column names not required in the csv file. Execution common property file and goal:
+
+		mvn install -Dopc.properties=environment.properties.us2 -Dgoal=bulk-dbcs-delete
+
+	If the identity domain specific environment properties file exists in the following format: ``environment.properties.gse00062294`` then the util will use that during the execution. If the specific property file does not exist then the common property file will be used. Keep in mind the credentials and identity domain properties will be always read from the **opc.domains.csv** file. Only the service specific attributes will be used from the common property file.
+
+The generic maven build execution format (except bulk operation, see above):
 
 **mvn -Dgoal=GOAL** *-Dopc.properties=myproperties.props*
 

@@ -26,6 +26,12 @@ public class OPCProperties {
 	public static final String GOAL_CREATE_JCS_AUTO = "jcs-create-auto";
 	public static final String GOAL_JCS_GET_SPECIFIC_JOB_DETAILS = "jcs-get-job-details";
 	public static final String GOAL_GENERATE_SSH_KEYPAIR = "generate-ssh-keypair";
+	public static final String GOAL_BULK_ACCS_DELETE = "bulk-accs-delete";
+	public static final String GOAL_BULK_JCS_DELETE = "bulk-jcs-delete";
+	public static final String GOAL_BULK_DBCS_DELETE = "bulk-dbcs-delete";
+	public static final String GOAL_BULK_DBCS_CREATE = "bulk-dbcs-create";
+	public static final String GOAL_BULK_DEVCS_DELETE = "bulk-devcs-delete";
+	public static final String GOAL_BULK_STORAGE_DELETE = "bulk-storage-delete";
 
 	public static final String GOAL_STORAGE_DETAILS = "storage-get-details";
 	public static final String GOAL_STORAGE_CREATE = "storage-create";
@@ -36,6 +42,7 @@ public class OPCProperties {
 	public static final String CONTENT_TYPE_JSON = "application/json";
 	public static final String CONTENT_TYPE_TEXT = "text/plain";
 
+	public static final String OPC_REGION = "opc.region";
 	public static final String OPC_BASE_URL = "opc.base.url";
 	public static final String OPC_USERNAME = "opc.username";
 	public static final String OPC_PASSWORD = "opc.password";
@@ -67,6 +74,10 @@ public class OPCProperties {
 
 	public static final String DBCS_DBA_NAME = "dbcs.dba.name";
 	public static final String DBCS_DBA_PASSWORD = "dbcs.dba.password";
+	
+	public static final String ACCS_REST_URL = "accs.rest.url";
+	
+	public static final String BULK_LIST = "opc.domains.csv";
 
 	public static final String HEADER_X_AUTH_TOKEN = "X-Auth-Token";
 	public static final String HEADER_X_STORAGE_URL = "X-Storage-Url";
@@ -103,6 +114,19 @@ public class OPCProperties {
 			e.printStackTrace();
 		}
 	}
+	
+	public static boolean testPropertiesFile(String sPropertyFile) {
+		try {
+			URL url = OPCProperties.class.getClassLoader().getResource(sPropertyFile);
+			if (url == null) {
+				return false;
+			}
+			System.out.println("Properties file available: " + url.toURI());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
 
 	public static OPCProperties getInstance() {
 		if (INSTANCE == null) {
@@ -115,6 +139,10 @@ public class OPCProperties {
 		//System.out.println("Property: " + key + "="
 			//	+ configProp.getProperty(key));
 		return configProp.getProperty(key);
+	}
+	
+	public void setProperty(String key, String value) {
+		configProp.setProperty(key, value);
 	}
 
 	public Set<String> getAllPropertyNames() {
