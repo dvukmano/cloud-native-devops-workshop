@@ -239,6 +239,32 @@ public class ExecuteBulk {
 
 		return "Bulk DBCS create complete -----------------------------------------------------";
 
+	}
+	
+	public static String bulkDBCSinfo(String defaultPropertiesFile) {
+
+		for (String[] domain : readDomainList()) {
+			if (OPCProperties.testPropertiesFile("environment.properties." + domain[0])) {
+				OPCProperties.getInstance().init("environment.properties." + domain[0]);
+			} else {
+				OPCProperties.getInstance().init(defaultPropertiesFile);
+			}
+
+			// set the current domain and credential
+			OPCProperties.getInstance().setProperty(OPCProperties.OPC_IDENTITY_DOMAIN, domain[0]);
+			OPCProperties.getInstance().setProperty(OPCProperties.OPC_REGION, domain[1]);
+			OPCProperties.getInstance().setProperty(OPCProperties.OPC_USERNAME, domain[2]);
+			OPCProperties.getInstance().setProperty(OPCProperties.OPC_PASSWORD, domain[3]);
+		
+			//get DBCS details
+			System.out.println(domain[0] + " identity domain, " + OPCProperties.getInstance().getProperty(OPCProperties.DBCS_INSTANCE_1) + "  service ::::::::::::::::::::::");
+			System.out.println(OPCDatabase.getDBCSInstanceDetail());
+			System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+			
+		}
+		
+		return "Bulk DBCS info complete -----------------------------------------------------";
+
 	}	
 
 	public static String[] getJCSInstanceNames() {

@@ -30,6 +30,7 @@ public class OPCProperties {
 	public static final String GOAL_BULK_JCS_DELETE = "bulk-jcs-delete";
 	public static final String GOAL_BULK_DBCS_DELETE = "bulk-dbcs-delete";
 	public static final String GOAL_BULK_DBCS_CREATE = "bulk-dbcs-create";
+	public static final String GOAL_BULK_DBCS_INFO = "bulk-dbcs-info";
 	public static final String GOAL_BULK_DEVCS_DELETE = "bulk-devcs-delete";
 	public static final String GOAL_BULK_STORAGE_DELETE = "bulk-storage-delete";
 

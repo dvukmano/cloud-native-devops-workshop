@@ -222,6 +222,13 @@ public class ExecuteGoal {
 	        	System.out.println(response);
 
 	        	break;
+	        case OPCProperties.GOAL_BULK_DBCS_INFO:
+	        	System.out.println("Bulk DBCS info ----------------------------------------");
+
+	        	response = ExecuteBulk.bulkDBCSinfo(args[0]);
+	        	System.out.println(response);
+
+	        	break;	        	
 	        case OPCProperties.GOAL_BULK_DEVCS_DELETE:
 	        	System.out.println("Bulk DEVCS delete ----------------------------------------");
 

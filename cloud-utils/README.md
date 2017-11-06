@@ -37,9 +37,10 @@ Once the configuration ready the following OPC management goals are available.
 - **jcs-get-instance-details**: get more detailed information (public IP address, WebLogic admin console address, version, status, etc.) about Java Cloud Service Instance.
 - **jcs-delete**: terminate Oracle Java Cloud Service instance.
 - **jcs-get-job-details –Djob.id=X**: get more details about Java Cloud Service instance related job. For example status of provisioning or termination. **X** is the job number which is available in the result of **jcs-get-instance-details**
-- **bulk-accs-delete / bulk-jcs-delete / bulk-dbcs-delete / bulk-dbcs-create / bulk-devcs-delete / bulk-storage-delete**: Buld operation to delete or create specified resource(s). Requires **opc.domain.csv** file in the following format: 
+- **bulk-accs-delete / bulk-jcs-delete / bulk-dbcs-delete / bulk-dbcs-create / bulk-dbcs-info / bulk-devcs-delete / bulk-storage-delete**: Buld operation to delete or create specified resource(s). Requires **opc.domain.csv** file in the following format: 
 
-	*identity domain;data center;user name;user password;developer cloud service instance*
+	``identity domain;data center;user name;user password;developer cloud service instance``
+
 	e.g.:
 	
 		gse00062294;us2;cloud.admin;aslkdjalsi3;developer39954
