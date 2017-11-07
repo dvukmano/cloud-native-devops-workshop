@@ -147,8 +147,8 @@ public class OPCJava {
 
 		sUri = "http://" + opcProperties.getProperty(OPCProperties.OPC_BASE_URL)
 				+ opcProperties.getProperty(OPCProperties.JCS_REST_URL)
-				+ opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN);
-
+				+ opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN) + "/" + OPCProperties.API_JCS_1_1_LIST_INSTANCES_POSTFIX;
+		
 		Credentials credOPCUser = new UsernamePasswordCredentials(opcProperties.getProperty(OPCProperties.OPC_USERNAME),
 				opcProperties.getProperty(OPCProperties.OPC_PASSWORD));
 
@@ -165,8 +165,8 @@ public class OPCJava {
 		BasicNameValuePair[] aHeaders = null;
 		String sUri = "https://" + opcProperties.getProperty(OPCProperties.OPC_BASE_URL)
 				+ opcProperties.getProperty(OPCProperties.JCS_REST_URL)
-				+ opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN) + "/"
-				+ sServiceName;
+				+ opcProperties.getProperty(OPCProperties.OPC_IDENTITY_DOMAIN) + "/" + OPCProperties.API_JCS_1_1_LIST_INSTANCES_POSTFIX
+				+ "/" + sServiceName ;
 
 		System.out.println(sUri);
 

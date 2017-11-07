@@ -276,15 +276,12 @@ public class ExecuteBulk {
 
 		System.out.println("List JCS Instances: " + response);
 		
-		JsonObject object = Json.parse(response).asObject();
-		JsonArray services = object.get("services").asArray();
+		JsonObject services = Json.parse(response).asObject().get("services").asObject();
 
-		for (JsonValue jsonValue : services) {
-			listOfJcs.add(jsonValue.asObject().get("service_name").asString());
-		}
+		System.out.println("Existing JCS services: " + services.names());
 
-		System.out.println("Existing JCS services: " + listOfJcs);
-
+		listOfJcs.addAll(services.names());
+		
 		return listOfJcs.toArray(new String[0]);
 	}
 

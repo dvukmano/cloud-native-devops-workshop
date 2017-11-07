@@ -91,6 +91,8 @@ public class OPCProperties {
 	public static final int EXIST = 0;
 	public static final int NOT_EXIST = 1;
 	public static final int FAILED = 2;
+	
+	public static final String API_JCS_1_1_LIST_INSTANCES_POSTFIX = "services/jaas/instances";
 
 	private final Properties configProp = new Properties();
 

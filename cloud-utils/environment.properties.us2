@@ -16,17 +16,17 @@ ssh.user=opc
 # public ssh key in the following format, copy the public key value from winsmt.pub file which is inside the MT-Workshop folder
 ssh.public.key=KEY_THAT_WILL_BE_AUTIOMATICALLY_FILLED
 
-ssh.passphrase=weblogic
+ssh.passphrase=
 
 #the name of the private key file located in 'cloud.demos' folder
 ssh.privatekey=pk.openssh
 
 # JCS details
 jcs.base.url=jaas.oraclecloud.com
-jcs.rest.url=/paas/service/jcs/api/v1.1/instances/
+jcs.rest.url=/paas/api/v1.1/instancemgmt/
 jcs.instance.version.1=12.2.1
 jcs.instance.otd.1=false
-jcs.instance.1=techco
+jcs.instance.1=petstore
 jcs.instance.desc.1=winsdemo instance through REST
 jcs.instance.partition.1=1
 jcs.instance.admin.user.1=weblogic
