@@ -1,0 +1,8 @@
+{
+    "components":{
+        "WLS":{
+            "hosts":"[alpha01a-jcs-wls-2]",
+            "force":"true"
+        }
+    }
+}
