@@ -10,7 +10,7 @@
 
 
 MAVEN_PROJECT_DIR=../springboot-sample
-MAVEN_PROJECT_WAR=target/springbootdemo-0.0.1.war.original
+MAVEN_PROJECT_WAR=target/springbootdemo.war.original
 
 TOMCAT_VERSION=8.5.6
 TOMCAT_DIST=apache-tomcat-${TOMCAT_VERSION}
