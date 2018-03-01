@@ -1,0 +1,65 @@
+html { 
+  background: url(../Images/bg.jpg) no-repeat center center fixed; 
+  background-color:#AABCC2;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color:  #000;
+    margin:0px;
+ }
+ 
+
+ a { 
+color:#000000;
+text-decoration: none;}
+
+#title{
+position:relative;
+float:left;
+width:100%;
+padding:5px 30px;
+background-color:rgba(71,88,94,.4);
+color:#FFFFFF;
+}
+
+header h1{
+font-size:150%;
+
+}
+
+#myProducts{
+position:relative;
+float:left;
+padding-top:30px;
+}
+
+#products{
+float:left;
+position:relative;
+border: 1px solid #000;
+background-color: #DFE5E7;
+padding: 20px 15px;
+margin:15px 30px;
+color:#47585E;
+height:325px;
+}
+
+#products h4{
+font-size:70%;
+width:200px;
+}
+
+#products img{
+height: 200px;
+width:200px;
+background-color:#6DBACF;
+}
+ 

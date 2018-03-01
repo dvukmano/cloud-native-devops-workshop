@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!-- Specify a JDBC datasource -->
+	<Resource name="jdbc/AlphaOfficeAccessDS" auth="Container"
+		type = "javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@140.86.33.195:1521/PDB1.gse00002057.oraclecloud.internal"
+		username="alpha" password="oracle" maxTotal="20" maxIdle="10"
+		maxWaitMillis="-1"/>
+</Context>
