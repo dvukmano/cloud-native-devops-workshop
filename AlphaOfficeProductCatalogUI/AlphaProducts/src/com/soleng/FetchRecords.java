@@ -29,7 +29,7 @@ public class FetchRecords {
 		  Context initContext = new InitialContext();
 		  Context envContext  = (Context)initContext.lookup("java:/comp/env");
 		  System.err.println("envContext Created: "+envContext);
-		  DataSource ds = (DataSource)envContext.lookup("jdbc/Alpha01A-DBCS-ds");
+		  DataSource ds = (DataSource)envContext.lookup("jdbc/Alpha01A-DBCS-ds-CanDo");
 		  System.err.println("envContext Created: "+ds);
 		  
 		  Connection con = ds.getConnection();
